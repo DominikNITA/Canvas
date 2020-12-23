@@ -91,7 +91,7 @@ export class ContextManager {
     if (object.hasOwnProperty("webGLType") && object.hasOwnProperty("id")) {
       return (this.webGLObject[object["id"]]);
     } else if (Array.isArray(object) && !method.endsWith("v")) {
-      return Int8Array.of(...(object as number[]));
+      return Uint8Array.of(...(object as number[]));
     } else if (typeof(object) === "string" && (method === "bufferData" || method === "bufferSubData")) {
       let binStr = window.atob(object);
       let length = binStr.length;
